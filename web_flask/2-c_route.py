@@ -15,19 +15,21 @@ def hello_hbnb():
     """
     return 'Hello HBNB!'
 
+
 @app.route('/hbnb', strict_slashes=False)
-def hbnb():
+def show_hbnb():
     """
     Displays 'HBNB'
     """
     return 'HBNB'
+
 
 @app.route('/c/<text>', strict_slashes=False)
 def c_text(text):
     """
     Displays C followed by the of text variable
     """
-    return 'C' + text.replace('_', ' ')
+    return 'C {}'.format(text.replace('_', ' '))
 
 
 if __name__ == '__main__':
