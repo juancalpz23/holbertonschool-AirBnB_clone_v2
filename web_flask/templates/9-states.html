@@ -4,14 +4,14 @@
     <TITLE>HBNB</TITLE>
   </HEAD>
   <BODY>
-    {% if state is none %}
+    {% if state is None %}
     <H1>Not found!</H1>
     {% else %}
     <H1>State: {{ state|attr("name") }}</H1>
     <H3>Cities:</H3>
        <UL>
-         {% for city in state|attr("cities")|sort(attribute="name") %}
-         <LI>{{ city|attr("id") }}: <B>{{ city|attr("name") }}</B></LI>
+         {% for city in state.cities|sort(attribute="name") %}
+         <LI>{{ city.id }}: <B>{{ city.name }}</B></LI>
          {% endfor %}
        </UL>
     {% endif %}

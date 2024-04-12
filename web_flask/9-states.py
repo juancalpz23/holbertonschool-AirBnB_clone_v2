@@ -4,7 +4,7 @@ Starts a Flask web application
 """
 
 from flask import Flask, render_template
-from models import storage
+from models import storage, classes
 from models.state import State
 from models.city import City
 
@@ -37,7 +37,7 @@ def state_cities(id):
 @app.teardown_appcontext
 def teardown_db(exception):
     """
-    Remove the current SQLAlchemy Session
+    Close session
     """
     storage.close()
 
