@@ -16,9 +16,19 @@ def states_list():
     """
     Displays a list of states
     """
-    states = storage.all(State).values()
+    states = storage.all(classes["State"]).values()
     states_sorted = sorted(states, key=lambda state: state.name)
-    return render_template('states.html', states=states_sorted)
+    return render_template('7-states_list.html', states=states_sorted)
+
+
+@app.route('/cities_by_states', strict_slashes=False)
+def cities_by_state():
+    """
+    Displays html with states and cities listed
+    """
+    states = storage.all(classes["State"]).values()
+    states_sorted = sorted(states, key=lambda state: state.name)
+    return (render_template('8-cities_by_states.html', states=states_sorted))
 
 
 @app.route('/states/<id>', strict_slashes=False)
@@ -26,10 +36,10 @@ def state_cities(id):
     """
     Displays cities of a specific state
     """
-    state = storage.get(State, id)
+    state = storage.get(classes["State"], id)
     if state:
         cities = sorted(state.cities, key=lambda city: city.name)
-        return render_template('state.html', state=state, cities=cities)
+        return render_template('9-states.html', state=state, cities=cities)
     else:
         return render_template('not_found.html')
 
