@@ -8,7 +8,6 @@ sys.path.append("c:\\Users\\juanc\\OneDrive\\Documents\\Visual Studio\\Holberton
 from flask import Flask, render_template
 from models import storage, classes
 from models.state import State
-from models.city import City
 
 app = Flask(__name__)
 
